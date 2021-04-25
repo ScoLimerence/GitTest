@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>JavaWeb-01</module>
+        <module>JavaWeb-02</module>
     </modules>
 
     <properties>

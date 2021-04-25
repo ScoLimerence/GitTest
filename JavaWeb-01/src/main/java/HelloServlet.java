@@ -1,3 +1,4 @@
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,15 +15,19 @@ import java.io.PrintWriter;
 public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html");
-        resp.setCharacterEncoding("gbk");
+
+        ServletContext context = this.getServletContext();
+        String name = (String) context.getAttribute("name");
+/*        resp.setContentType("text/html");
+        resp.setCharacterEncoding("gbk");*/
+        resp.setHeader("Content-Type","text/html;charset=gbk");
         PrintWriter writer = resp.getWriter();
         writer.println("<html>");
         writer.println("<head>");
         writer.println("<title>你好 javaWeb!</title>");
         writer.println("</head>");
         writer.println("<body>");
-        writer.println("<h1>Hello World!</h1>");
+        writer.println("<h1>name=" + name + "</h1>");
         writer.println("</body>");
         writer.println("</html>");
     }
