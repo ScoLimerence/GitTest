@@ -53,3 +53,42 @@ tomcat会定时扫描容器内的jsp文件,读取每个文件的属性，当发�
 > IO操作：通俗地讲就是： 
 > FileInputStream在读取文件的时候，一滴一滴地把水从一个缸复制到另外一个缸 
 > BufferInputStream则是一桶一桶地把水从一个缸复制到另外一个缸。
+
+## 浏览器端默认缓存网页
+为了提高网页的访问效率，浏览器可以在本地缓存以前访问过的页面，当浏览器再次访问那些已经缓存了的页面时，
+浏览器就不用再去访问远程的Web服务器了，而是直接从本地取出缓存的内容。
+缓存提高了浏览器的访问效率，但有时候也会带来负面效果，那就是服务端的内容变化不能实时地反应到客户端
+，例如：`动态产生的图片文件(如验证码)和js脚本文件不能及时更新的问题`。有三个HTTP响应头字段可以禁止浏览器缓存当前页面，在Servlet中的示例代码如下：</br>
+response.setHeader("Expires",0);</br>
+response.setHeader("Cache-Control","no-cache");</br>
+response.setHeader("Pragma","no-cache");</br>
+并不是所有的浏览器都能完全支持这三个响应头，因此最好同时使用以上三个响应头，只要浏览器能支持其中任何一种形式，就能禁止浏览器缓存当前页面。
+
+## 请求转发与重定向
+面试题：resp.sendRedirect();
+相同点：页面都会跳转   不同点：转发地址栏不会变化、重定向url会发生变化。转发可以携带请求参数到另一个页面，
+重定向不刻意。
+转发可以使用两种方式
+req.getRequestDispatcher("/index.jsp").forward(req,resp);
+this.getServletContext().getRequestDispatcher().forward(req,resp);
+
+## request中parameter与attribute的区别
+区别：
+来源不同：   
+参数（parameter）是从客户端（浏览器）中由用户提供的，若是GET方法是从URL中 提供的，
+若是POST方法是从请求体（request body）中提供的；
+属性（attribute）是服务器端的组件（JSP或者Servlet）利用requst.setAttribute（）设置的
+
+操作不同：   参数（parameter）的值只能读取不能修改，读取可以使用request.getParameter()读取；
+属性（attribute）的值既可以读取亦可以修改，读取可以使用request.setAttribute(), 设置可使用request.getAttribute()
+
+数据类型不同：   参数（parameter）不管前台传来的值语义是什么，`在服务器获取时都以String类型看待`，并且客户端的参数值只能是简单类型的值，不能是复杂类型，比如一个对象。
+属性（attribute）的值可以是任意一个Object类型。
+
+共同点
+二者的值都被封装在request对象中。
+
+## request的使用获取前端参数和请求的转发
+其取值都是依赖于前端标签的name属性，取到对应的value值，不是id。
+getParameter()  获取单个前端参数值
+getParameterValues()  获得复选框多个值返回数组
