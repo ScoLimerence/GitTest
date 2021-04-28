@@ -23,6 +23,7 @@ public class ServletDemo04 extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         resp.setCharacterEncoding("utf-8");
+        //后端接受前端参数值都是当作字符串处理
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         String[] hobbies = req.getParameterValues("hobbies");
@@ -31,4 +32,5 @@ public class ServletDemo04 extends HttpServlet {
 
         req.getRequestDispatcher("/index.jsp").forward(req,resp);
     }
+//    1619624350645 1619624436976
 }

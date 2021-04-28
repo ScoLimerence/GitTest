@@ -92,3 +92,10 @@ this.getServletContext().getRequestDispatcher().forward(req,resp);
 其取值都是依赖于前端标签的name属性，取到对应的value值，不是id。
 getParameter()  获取单个前端参数值
 getParameterValues()  获得复选框多个值返回数组
+
+## 会话
+用户打开浏览器，访问web资源，到最后关闭浏览器称为一次会话
+有状态会话：一个同学来过教室，下次再来教室，我们知道这个同学曾经来过
+一个网站怎么证明你来过？
+- 服务端给客户端一个信件，客户端下次访问带上信件即可 cookie
+- 服务器端登记你来过，下次来的时候匹配你  session
