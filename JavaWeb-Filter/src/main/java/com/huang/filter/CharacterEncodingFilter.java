@@ -13,7 +13,7 @@ public class CharacterEncodingFilter implements Filter {
     //初始化，Web服务器启动时初始化
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        //可以在服务器yi
+        //可以在服务器启动时初始化参数、可以打印日志信息，设置servletContext中的参数
         System.out.println("FilterName = " + filterConfig.getFilterName());
     }
 
@@ -31,7 +31,7 @@ public class CharacterEncodingFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         servletResponse.setContentType("text/html;charset=UTF-8");
-        servletRequest.setCharacterEncoding("gbk");
+        servletRequest.setCharacterEncoding("UTF-8");
 
         System.out.println("过滤器生效。。。。");
         //不放行就卡在这里，不继续下去

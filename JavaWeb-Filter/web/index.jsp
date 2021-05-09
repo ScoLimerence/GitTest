@@ -11,6 +11,6 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+session创建了几<span style="color: chartreuse">${applicationScope.get("OnlineCount")}</span>次
   </body>
 </html>

@@ -14,4 +14,33 @@
         一般过滤器不会过滤所有请求，只会过滤特定路径下的请求-->
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>com.huang.filter.LoginFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/sys/*</url-pattern>
+    </filter-mapping>
+    
+    <listener>
+        <listener-class>com.huang.listener.OnlineCountListener</listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>loginServlet</servlet-name>
+        <servlet-class>com.huang.servlet.LoginServlet</servlet-class>
+        <init-param>
+            <param-name>log4j-properties-location</param-name>
+            <param-value>WEB-INF\classes\log4j.properties</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>loginServlet</servlet-name>
+        <url-pattern>/test/t1</url-pattern>
+    </servlet-mapping>
 </web-app>
