@@ -12,6 +12,7 @@
         <module>JavaWeb-01</module>
         <module>JavaWeb-02</module>
         <module>JavaWeb-JSP</module>
+        <module>JavaWeb-JDBC</module>
     </modules>
 
     <properties>
