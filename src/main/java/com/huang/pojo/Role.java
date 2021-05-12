@@ -1,4 +1,4 @@
-package com.shme.pojo;
+package com.huang.pojo;
 
 import java.util.Date;
 

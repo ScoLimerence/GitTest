@@ -1,4 +1,4 @@
-package com.shme.pojo;
+package com.huang.pojo;
 
 import java.math.BigDecimal;
 import java.util.Date;
