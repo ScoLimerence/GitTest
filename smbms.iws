@@ -2,53 +2,49 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="smbms:war" />
+      <artifact name="smbms:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="544ea453-a3cf-43a0-9b27-1afbd960c720" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/huang/dao/BaseDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/huang/dao/user/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/huang/dao/user/UserDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/huang/filter/CharsetEncodingFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/test/com.huang.test/Test01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+    <list default="true" id="544ea453-a3cf-43a0-9b27-1afbd960c720" name="Default Changelist" comment="超市管理系统完善">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/huang/constant/ContextConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/huang/dao/role/RoleDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/huang/dao/role/RoleDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/huang/filter/SysFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/huang/service/role/RoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/huang/service/role/RoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/huang/service/user/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/huang/service/user/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/huang/servlet/user/LoginOutServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/huang/servlet/user/LoginServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/huang/servlet/user/UserServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/huang/utils/PageSupport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/error.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smbms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/smbms.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smbms.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/smbms.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smbms.iws" beforeDir="false" afterPath="$PROJECT_DIR$/smbms.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/dao/BaseDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/dao/RoleDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/dao/RoleDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/dao/UserDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/dao/UserDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/filter/CharacterEncodingFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/filter/SystemFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/pojo/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huang/pojo/Bill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/pojo/Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huang/pojo/Provider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/pojo/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huang/pojo/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huang/pojo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/service/RoleService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/service/RoleServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/service/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/servlet/LoginServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/servlet/LogoutServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/servlet/UserServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/util/Constants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shme/util/PageSupport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/huang/dao/BaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huang/dao/BaseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/huang/dao/user/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huang/dao/user/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/huang/dao/user/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huang/dao/user/UserDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/pwdmodify.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/pwdmodify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/common/head.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/common/head.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/error.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/pwdmodify.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/pwdmodify.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="Commander">
     <leftPanel view="Project" />
@@ -211,6 +207,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit5 Test Class" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -218,6 +215,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="HierarchyBrowserManager">
     <option name="SHOW_PACKAGES" value="false" />
@@ -309,9 +314,31 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/images" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.20276497" />
+    <property name="project.structure.side.proportion" value="0.20100503" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Java" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\workspace\Git仓库\smbms\src\main\webapp\images" />
+      <recent name="F:\workspace\Git仓库\smbms\src\main\webapp\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\workspace\Git仓库\smbms\src\main\webapp" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.huang.dao.user" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.RoleServiceImpl.test01">
     <configuration selected="false" default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -339,6 +366,48 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RoleServiceImpl.test01" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="smbms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.huang.service.role.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.huang.service.role" />
+      <option name="MAIN_CLASS_NAME" value="com.huang.service.role.RoleServiceImpl" />
+      <option name="METHOD_NAME" value="test01" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceImpl.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="smbms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.huang.service.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.huang.service.user" />
+      <option name="MAIN_CLASS_NAME" value="com.huang.service.user.UserServiceImpl" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
@@ -353,7 +422,7 @@
     <configuration name="Tomcat 9.0.37" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.37" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="smbms:war">
+        <artifact name="smbms:war exploded">
           <settings>
             <option name="CONTEXT_PATH" value="/" />
           </settings>
@@ -433,10 +502,21 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="smbms:war" />
+          <artifact name="smbms:war exploded" />
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.UserServiceImpl.test" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.37" />
+      <item itemvalue="JUnit.RoleServiceImpl.test01" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.RoleServiceImpl.test01" />
+        <item itemvalue="JUnit.UserServiceImpl.test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="StarteamConfiguration">
@@ -475,8 +555,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1620826073608</updated>
-      <workItem from="1620826076024" duration="2027000" />
+      <workItem from="1620826076024" duration="2287000" />
+      <workItem from="1621007500588" duration="986000" />
+      <workItem from="1621042719043" duration="11546000" />
+      <workItem from="1621068130431" duration="4567000" />
+      <workItem from="1621175083053" duration="6720000" />
+      <workItem from="1621265549692" duration="2346000" />
+      <workItem from="1621338694815" duration="7085000" />
+      <workItem from="1621511399299" duration="6114000" />
+      <workItem from="1621524702794" duration="1791000" />
     </task>
+    <task id="LOCAL-00001" summary="超市订单管理系统起步">
+      <created>1620835598146</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1620835598147</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -516,6 +612,36 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="超市订单管理系统起步" />
+    <option name="LAST_COMMIT_MESSAGE" value="超市订单管理系统起步" />
   </component>
   <component name="VssConfiguration">
     <CheckoutOptions>
@@ -568,5 +694,15 @@
   </component>
   <component name="WebViewSettings">
     <webview flattenPackages="false" showMembers="false" autoscrollToSource="false" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint type="java-exception">
+          <properties class="java.sql.SQLNonTransientConnectionException" package="java.sql" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

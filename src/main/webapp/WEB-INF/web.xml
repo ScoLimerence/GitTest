@@ -22,4 +22,43 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>SysFilter</filter-name>
+        <filter-class>com.huang.filter.SysFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SysFilter</filter-name>
+        <url-pattern>/jsp/*</url-pattern>
+    </filter-mapping>
+    
+    <servlet>
+        <servlet-name>loginServlet</servlet-name>
+        <servlet-class>com.huang.servlet.user.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>loginServlet</servlet-name>
+        <url-pattern>/login.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>loginOutServlet</servlet-name>
+        <servlet-class>com.huang.servlet.user.LoginOutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>loginOutServlet</servlet-name>
+        <url-pattern>/jsp/logout.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>userServlet</servlet-name>
+        <servlet-class>com.huang.servlet.user.UserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>userServlet</servlet-name>
+        <url-pattern>/jsp/user.do</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+        <session-timeout>15</session-timeout>
+    </session-config>
 </web-app>

@@ -6,7 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body style="background-image: url(${pageContext.request.contextPath}/images/error.jpg);">
+
 你要访问的页面，已经飞往火星！
 <a href="javascript:window.history.back(-1);">返回</a>
 </body>

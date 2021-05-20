@@ -25,7 +25,7 @@ public class BaseDao {
         logger.info("------------------->静态代码块执行");
         //读取配置文件，利用反射机制通过类加载器读取文件，获得流对象
         Properties prop = new Properties();
-        InputStream in = BaseDao.class.getClassLoader().getResourceAsStream("/db.properties");
+        InputStream in = BaseDao.class.getClassLoader().getResourceAsStream("db.properties");
         try {
             prop.load(in);
         } catch (IOException e) {
@@ -38,11 +38,11 @@ public class BaseDao {
     }
 
     {
-        logger.info("------------------->匿名代码块执行");
+        logger.info("------------------->构造代码块执行");
     }
 
     public BaseDao() {
-        logger.info("------------------->构造代码块执行");
+        logger.info("------------------->构造函数执行");
     }
 
     //获得数据库连接
@@ -66,7 +66,7 @@ public class BaseDao {
      * @param params 参数数组
      * @param rs
      */
-    public ResultSet universalQuery(Connection conn, String sql, PreparedStatement ps, Object[] params, ResultSet rs) throws SQLException {
+    public static ResultSet universalQuery(Connection conn, String sql, PreparedStatement ps, Object[] params, ResultSet rs) throws SQLException {
         ps = conn.prepareStatement(sql);
 
         //数组从0开始，占位符从1开始
@@ -87,7 +87,7 @@ public class BaseDao {
      * @return
      * @throws SQLException
      */
-    public int universalUpdate(Connection conn, String sql, PreparedStatement ps, Object[] params) throws SQLException {
+    public static int universalUpdate(Connection conn, String sql, PreparedStatement ps, Object[] params) throws SQLException {
         ps = conn.prepareStatement(sql);//读取预编译sql语句
 
         //数组从0开始，占位符从1开始

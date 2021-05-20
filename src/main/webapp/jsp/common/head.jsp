@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>超市订单管理系统</title>
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css" />
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/css/public.css" />

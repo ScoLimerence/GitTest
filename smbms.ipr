@@ -32,9 +32,7 @@
             <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
             <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.21" />
             <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.11.4" />
-            <element id="library" level="project" name="Maven: javax.servlet.jsp.jstl:jstl-api:1.2" />
-            <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
-            <element id="library" level="project" name="Maven: javax.servlet.jsp:jsp-api:2.1" />
+            <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
             <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.62" />
             <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
           </element>
@@ -78,9 +76,18 @@
       </driver-properties>
     </data-source>
   </component>
-  <component name="Encoding">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8" addBOMForNewFiles="with BOM">
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/huang/dao/role/RoleDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/huang/dao/role/RoleDaoImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/huang/service/role/RoleService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/huang/service/role/RoleServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/huang/servlet/user/UserServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/huang/utils/PageSupport.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/js/pwdmodify.js" charset="x-UTF-16LE-BOM" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
   <component name="ExportToHTMLSettings">
     <option name="PRINT_LINE_NUMBERS" value="false" />
@@ -99,6 +106,37 @@
   <component name="InspectionProjectProfileManager">
     <profile version="1.0">
       <option name="myName" value="Project Default" />
+      <inspection_tool class="JavaDoc" enabled="true" level="WARNING" enabled_by_default="true">
+        <option name="TOP_LEVEL_CLASS_OPTIONS">
+          <value>
+            <option name="ACCESS_JAVADOC_REQUIRED_FOR" value="none" />
+            <option name="REQUIRED_TAGS" value="" />
+          </value>
+        </option>
+        <option name="INNER_CLASS_OPTIONS">
+          <value>
+            <option name="ACCESS_JAVADOC_REQUIRED_FOR" value="none" />
+            <option name="REQUIRED_TAGS" value="" />
+          </value>
+        </option>
+        <option name="METHOD_OPTIONS">
+          <value>
+            <option name="ACCESS_JAVADOC_REQUIRED_FOR" value="none" />
+            <option name="REQUIRED_TAGS" value="@return@param@throws or @exception" />
+          </value>
+        </option>
+        <option name="FIELD_OPTIONS">
+          <value>
+            <option name="ACCESS_JAVADOC_REQUIRED_FOR" value="none" />
+            <option name="REQUIRED_TAGS" value="" />
+          </value>
+        </option>
+        <option name="IGNORE_DEPRECATED" value="false" />
+        <option name="IGNORE_JAVADOC_PERIOD" value="true" />
+        <option name="IGNORE_DUPLICATED_THROWS" value="false" />
+        <option name="IGNORE_POINT_TO_ITSELF" value="false" />
+        <option name="myAdditionalJavadocTags" value="Description,ClassName,createTime" />
+      </inspection_tool>
     </profile>
     <version value="1.0" />
   </component>
@@ -258,7 +296,7 @@
       <module fileurl="file://$PROJECT_DIR$/smbms.iml" filepath="$PROJECT_DIR$/smbms.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
       <option name="id" value="central" />
@@ -318,37 +356,15 @@
         <root url="jar://$MAVEN_REPOSITORY$/com/google/protobuf/protobuf-java/3.11.4/protobuf-java-3.11.4-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: javax.servlet.jsp.jstl:jstl-api:1.2">
+    <library name="Maven: jstl:jstl:1.2">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/jsp/jstl/jstl-api/1.2/jstl-api-1.2.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/jstl/jstl/1.2/jstl-1.2.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/jsp/jstl/jstl-api/1.2/jstl-api-1.2-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/jstl/jstl/1.2/jstl-1.2-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/jsp/jstl/jstl-api/1.2/jstl-api-1.2-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: javax.servlet.jsp:jsp-api:2.1">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: javax.servlet:servlet-api:2.5">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.5/servlet-api-2.5-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.5/servlet-api-2.5-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/jstl/jstl/1.2/jstl-1.2-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: junit:junit:4.12">
