@@ -1,5 +1,9 @@
 package com.huang.utils;
 
+import org.junit.Test;
+
+import javax.lang.model.SourceVersion;
+
 /**
  * @author huanghudong
  * @ClassName PageSupport.java
@@ -37,7 +41,7 @@ public class PageSupport {
     public void setTotalCount(int totalCount) {
         if (totalCount > 0) {
             this.totalCount = totalCount;
-            //设置总页数
+            //设置总记录数
             this.setTotalPageCountByRs();
         }
     }
@@ -61,12 +65,19 @@ public class PageSupport {
     }
 
     public void setTotalPageCountByRs() {
-        if (this.totalCount % this.pageSize == 0) {
-            this.totalPageCount = this.totalCount / this.pageSize;
-        } else if (this.totalCount % this.pageSize > 0) {
-            this.totalPageCount = this.totalCount / this.pageSize + 1;
+        if (this.totalCount % this.pageSize == 0) {//每页容量>总记录数
+            this.totalPageCount = this.totalCount / this.pageSize;//总页数=0
+        } else if (this.totalCount % this.pageSize > 0) {//每页容量<总记录数
+            this.totalPageCount = this.totalCount / this.pageSize + 1;//总页数多一页
         } else {
             this.totalPageCount = 0;
         }
     }
+    @Test
+    public void test11(){
+        int m=12;
+        int n=5;
+        System.out.println(m/n);
+    }
+
 }

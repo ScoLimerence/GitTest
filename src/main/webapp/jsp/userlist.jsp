@@ -22,7 +22,7 @@
 						   </c:forEach>
 						</c:if>
 	        		</select>
-					 
+					 <%--隐藏域存放当前页面--%>
 					 <input type="hidden" name="pageIndex" value="1"/>
 					 <input	value="查 询" type="submit" id="searchbutton">
 					 <a href="${pageContext.request.contextPath}/jsp/useradd.jsp" >添加用户</a>

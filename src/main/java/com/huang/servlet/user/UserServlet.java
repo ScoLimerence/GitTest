@@ -2,10 +2,15 @@ package com.huang.servlet.user;
 
 import com.alibaba.fastjson.JSONArray;
 import com.huang.constant.ContextConstant;
+import com.huang.pojo.Role;
 import com.huang.pojo.User;
+import com.huang.service.role.RoleService;
+import com.huang.service.role.RoleServiceImpl;
 import com.huang.service.user.UserService;
 import com.huang.service.user.UserServiceImpl;
+import com.huang.utils.PageSupport;
 import com.mysql.cj.util.StringUtils;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -25,13 +31,20 @@ import java.util.Map;
 //实现Servlet服用，不止修改密码，还有增删改查
 //实现复用需要提取出方法
 public class UserServlet extends HttpServlet {
+
+    private Logger logger = Logger.getLogger(this.getClass());
+    private UserService userService = new UserServiceImpl();
+    private RoleService roleService = new RoleServiceImpl();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String method = req.getParameter("method");
         if ("savepwd".equals(method)) {
             this.updatePwd(req, resp);
         } else if ("pwdmodify".equals(method)) {
-            this.pwdModify(req,resp);
+            this.pwdModify(req, resp);
+        } else if ("query".equals(method)) {
+            this.userManage(req, resp);
         }
     }
 
@@ -90,4 +103,59 @@ public class UserServlet extends HttpServlet {
         writer.close();
     }
 
+    public void userManage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //请求直接走servlet，什么值都没有,取出来的是null，当进行form表单提交没有内容就是“”空串
+        //获取前端传过来的参数
+        String queryName = req.getParameter("queryName");
+        String queryUserRoleStr = req.getParameter("queryUserRole");
+        String pageIndexStr = req.getParameter("pageIndex");
+
+        int queryUserRole = 0;
+        int currentPageNo = 1;//当前页
+        int pageSize = 5;//每页容量
+
+        if (!StringUtils.isNullOrEmpty(queryUserRoleStr)) {
+            queryUserRole = Integer.parseInt(queryUserRoleStr);
+        }
+        if (!StringUtils.isNullOrEmpty(pageIndexStr)) {
+            currentPageNo = Integer.parseInt(pageIndexStr);
+        }
+
+        int userTotallount = userService.getUserCount(queryName, queryUserRole);//查询出的用户总数
+        List<User> userList = userService.getUserList(queryName, queryUserRole, currentPageNo, pageSize);//得到分页后用户列表
+        List<Role> roleList = roleService.getRoleList();
+
+        //分页参数
+        PageSupport page = new PageSupport();
+        page.setPageSize(pageSize);
+        page.setTotalCount(userTotallount);
+        page.setCurrentPageNo(currentPageNo);
+
+        //将查询条件带回去
+        req.setAttribute("queryName", queryName);
+        req.setAttribute("queryUserRole", queryUserRole);
+        req.setAttribute("userList", userList);
+        req.setAttribute("roleList", roleList);
+
+        req.setAttribute("totalCount",page.getTotalCount());
+        req.setAttribute("currentPageNo",page.getCurrentPageNo());
+        req.setAttribute("totalPageCount",page.getTotalPageCount());
+
+        req.getRequestDispatcher("/jsp/userlist.jsp").forward(req, resp);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
