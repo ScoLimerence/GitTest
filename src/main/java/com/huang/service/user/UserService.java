@@ -2,6 +2,7 @@ package com.huang.service.user;
 
 import com.huang.pojo.User;
 
+import java.sql.Connection;
 import java.util.List;
 
 /**
@@ -24,5 +25,15 @@ public interface UserService {
     //根据条件查询用户列表
     public List<User> getUserList(String name, int role, int currentPageNo, int pageSize);
 
+    //添加用户
+    public boolean addUser(User user);
 
+    //查询用户
+    public User getUser(Integer uId);
+
+    //修改用户信息
+    public boolean updateUser(User user);
+
+    //根据用户id删除用户
+    public boolean deleteUser(Integer uId);
 }

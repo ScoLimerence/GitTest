@@ -27,5 +27,15 @@ public interface UserDao {
     //将查询与分页结合得到用户列表
     public List<User> getUserList(Connection conn,String name,int role,int currentPageNo,int pageSize) throws SQLException;
 
+    //添加用户
+    public int addUser(Connection conn,User user) throws SQLException;
 
+    //通过用户id得到用户
+    public User getUser(Connection conn , Integer uId) throws SQLException;
+
+    //通过用户id修改用户信息
+    public int updateUser(Connection conn , User user) throws SQLException;
+
+    //根据用户id删除用户
+    public int deleteUser(Connection conn ,Integer uId) throws SQLException;
 }

@@ -7,6 +7,7 @@ import com.huang.pojo.User;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
+import java.security.interfaces.RSAKey;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -98,9 +99,104 @@ public class UserServiceImpl implements UserService {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            BaseDao.closeResource(conn,null,null);
+            BaseDao.closeResource(conn, null, null);
         }
         return userList;
+    }
+
+    @Override
+    public boolean addUser(User user) {
+        Connection conn = null;
+        boolean flag = false;
+        try {
+            conn = BaseDao.getConnection();
+            conn.setAutoCommit(false);
+            int rows = userDao.addUser(conn, user);
+            conn.commit();
+            if (rows > 0) {
+                flag = true;
+                System.out.println("add success!");
+            } else {
+                System.out.println("add failed!");
+            }
+        } catch (SQLException throwables) {
+            try {
+                System.out.println("rollback==================");
+                conn.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            throwables.printStackTrace();
+        } finally {
+            BaseDao.closeResource(conn, null, null);
+        }
+        return flag;
+    }
+
+    @Override
+    public User getUser(Integer uId) {
+        Connection conn = null;
+        User user = null;
+        try {
+            conn = BaseDao.getConnection();
+            user = userDao.getUser(conn, uId);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return user;
+    }
+
+    @Override
+    public boolean updateUser(User user) {
+        Connection conn = null;
+        int row = 0 ;
+        boolean flag = false;
+        try {
+            conn = BaseDao.getConnection();
+            conn.setAutoCommit(false);
+            row = userDao.updateUser(conn, user);
+            conn.commit();
+            if (row>0){
+                flag=true;
+            }
+        } catch (SQLException throwables) {
+            try {
+                conn.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            throwables.printStackTrace();
+        }finally {
+            BaseDao.closeResource(conn,null,null);
+        }
+        return flag;
+    }
+
+    @Override
+    public boolean deleteUser(Integer uId) {
+        Connection conn = null;
+        int row = 0 ;
+        boolean flag = false;
+        try {
+            conn = BaseDao.getConnection();
+            conn.setAutoCommit(false);
+            row = userDao.deleteUser(conn, uId);
+            conn.commit();
+            if (row>0){
+                flag=true;
+            }
+        } catch (SQLException throwables) {
+            try {
+                conn.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            throwables.printStackTrace();
+        }finally {
+            BaseDao.closeResource(conn,null,null);
+        }
+        return flag;
     }
 
     @Test

@@ -28,3 +28,9 @@ SMBMS(超市管理项目)
 转发是发生在服务器内部，在同一应用下，可以不用写应用名。
 
 为了避免直接将应用名写在地址里面，可以使用request.getContextPath()方法来替代。
+
+###jquery里面的$(this)和this都什么时候用，有什么区别
+当你用的是jquery时，就用$(this)，如果是JS，就用this
+jquery对象$(this)[0]等同于JS里的元素this，这里的this是一样的，相信你应该看出来了，
+JS里的元素只要包上$()就是jquery对象了，而jquery的对象只要加上[0]或者.get(0)，就是js元素了。
+这里的this其实是一个Html 元素(textbox)，

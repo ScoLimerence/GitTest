@@ -25,6 +25,9 @@
 					 <%--隐藏域存放当前页面--%>
 					 <input type="hidden" name="pageIndex" value="1"/>
 					 <input	value="查 询" type="submit" id="searchbutton">
+                    <%--<%
+                        session.setAttribute("roleList",request.getAttribute("roleList"));
+                    %>--%>
 					 <a href="${pageContext.request.contextPath}/jsp/useradd.jsp" >添加用户</a>
 				</form>
             </div>

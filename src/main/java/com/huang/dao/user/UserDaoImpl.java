@@ -62,7 +62,7 @@ public class UserDaoImpl implements UserDao {
             String sql = "update smbms_user set userPassword= ? where id= ?";
             Object[] param = {password, id};//数组定义方式
             row = BaseDao.universalUpdate(conn, sql, ps, param);
-            //BaseDao.closeResource(conn,ps,null);
+            BaseDao.closeResource(null, ps, null);
         }
         return row;
     }
@@ -150,6 +150,79 @@ public class UserDaoImpl implements UserDao {
             BaseDao.closeResource(conn, ps, rs);
         }
         return userList;
+    }
+
+    @Override
+    public int addUser(Connection conn, User user) throws SQLException {
+        PreparedStatement ps = null;
+        int rows = 0;
+        if (conn != null) {
+            String sql = "insert into smbms_user (userCode, userName, userPassword,gender, birthday,phone, " +
+                    "address, userRole, createdBy, creationDate) " +
+                    "values (?,?,?,?,?,?,?,?,?,?)";
+            Object[] params = {user.getUserCode(), user.getUserName(), user.getUserPassword(),
+                    user.getGender(), user.getBirthday(), user.getPhone(), user.getAddress(),
+                    user.getUserRole(), user.getCreationDate(), user.getCreatedBy()};
+            rows = BaseDao.universalUpdate(conn, sql, ps, params);
+            BaseDao.closeResource(null, ps, null);
+        }
+
+        return rows;
+    }
+
+    @Override
+    public User getUser(Connection conn, Integer uId) throws SQLException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        User user = null;
+        if (conn != null) {
+            String sql = "select * from smbms_user t1 inner join smbms_role t2 on t1.userRole=t2.id where t1.id=?";
+            Object[] params = {uId};
+            rs = BaseDao.universalQuery(conn, sql, ps, params, rs);
+            while (rs.next()) {
+                user = new User();
+                user.setId(rs.getInt(1));
+                user.setUserCode(rs.getString(2));
+                user.setUserName(rs.getString(3));
+                user.setUserPassword(rs.getString(4));
+                user.setGender(rs.getInt(5));
+                user.setBirthday(rs.getDate(6));
+                user.setPhone(rs.getString(7));
+                user.setAddress(rs.getString(8));
+                user.setUserRole(rs.getInt(9));
+                user.setUserRoleName(rs.getString("roleName"));
+            }
+        }
+        return user;
+    }
+
+    @Override
+    public int updateUser(Connection conn, User user) throws SQLException {
+        int flag = 0;
+        PreparedStatement ps = null;
+        if (conn != null) {
+            String sql = "update smbms_user set userName=?,"+
+                    "gender=?,birthday=?,phone=?,address=?,userRole=?,modifyBy=?,modifyDate=? where id = ? ";
+            Object[] params = {user.getUserName(),user.getGender(),user.getBirthday(),
+                    user.getPhone(),user.getAddress(),user.getUserRole(),user.getModifyBy(),
+                    user.getModifyDate(),user.getId()};
+            flag = BaseDao.universalUpdate(conn, sql,ps, params);
+            BaseDao.closeResource(null, ps, null);
+        }
+        return flag;
+    }
+
+    @Override
+    public int deleteUser(Connection conn, Integer uId) throws SQLException {
+        PreparedStatement ps = null;
+        int row = 0;
+        if (conn!=null){
+            Object[] params={uId};
+            String sql="delete from smbms_user where id=?";
+            row=BaseDao.universalUpdate(conn,sql,ps,params);
+            BaseDao.closeResource(null, ps, null);
+        }
+        return row;
     }
 
 

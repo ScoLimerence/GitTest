@@ -18,6 +18,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,6 +48,18 @@ public class UserServlet extends HttpServlet {
             this.pwdModify(req, resp);
         } else if ("query".equals(method)) {
             this.userManage(req, resp);
+        }else if ("add".equals(method)){
+            this.userAdd(req,resp);
+        }else if ("getrolelist".equals(method)){
+            this.getRoleList(req,resp);
+        }else if ("view".equals(method)){
+            this.viewUser(req,resp,"userview.jsp");
+        }else if ("modifyexe".equals(method)){
+            this.userModify(req,resp);
+        }else if ("modify".equals(method)){ ;
+            this.viewUser(req,resp,"usermodify.jsp");
+        }else if ("deluser".equals(method)){ ;
+            this.deleteUser(req,resp);
         }
     }
 
@@ -142,6 +157,114 @@ public class UserServlet extends HttpServlet {
         req.setAttribute("totalPageCount",page.getTotalPageCount());
 
         req.getRequestDispatcher("/jsp/userlist.jsp").forward(req, resp);
+    }
+
+    public void userAdd(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String userCode = req.getParameter("userCode");
+        String userName = req.getParameter("userName");
+        String userPassword = req.getParameter("userPassword");
+        String gender = req.getParameter("gender");
+        String birthday = req.getParameter("birthday");
+        String phone = req.getParameter("phone");
+        String address = req.getParameter("address");
+        String userRole = req.getParameter("userRole");
+
+        User user = new User();
+        user.setUserCode(userCode);
+        user.setUserName(userName);
+        user.setUserPassword(userPassword);
+        user.setGender(Integer.valueOf(gender));
+        user.setPhone(phone);
+        user.setAddress(address);
+        user.setUserRole(Integer.valueOf(userRole));
+        try {
+            user.setBirthday(new SimpleDateFormat("yyyy-MM-dd").parse(birthday));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        boolean b = userService.addUser(user);
+        if (b){
+            try {
+                resp.sendRedirect(req.getContextPath()+"/jsp/user.do?method=query");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else {
+            req.getRequestDispatcher("useradd.jsp").forward(req, resp);
+        }
+    }
+
+    public void getRoleList(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        List<Role> roleList = roleService.getRoleList();
+        //req.setAttribute("roleList",roleList);
+        resp.setContentType("application/json");
+        PrintWriter writer = resp.getWriter();
+        writer.write(JSONArray.toJSONString(roleList));
+        writer.flush();
+        writer.close();
+    }
+
+    public void viewUser(HttpServletRequest req, HttpServletResponse resp,String page) throws ServletException, IOException {
+        String uid = req.getParameter("uid");
+        User user = userService.getUser(Integer.valueOf(uid));
+        req.setAttribute("user",user);
+        req.getRequestDispatcher(page).forward(req,resp);
+    }
+
+    public void userModify(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        String id = req.getParameter("uid");
+        String userName = req.getParameter("userName");
+        String gender = req.getParameter("gender");
+        String birthday = req.getParameter("birthday");
+        String phone = req.getParameter("phone");
+        String address = req.getParameter("address");
+        String userRole = req.getParameter("userRole");
+
+        User user = new User();
+        user.setId(Integer.valueOf(id));
+        user.setUserName(userName);
+        user.setGender(Integer.valueOf(gender));
+        try {
+            user.setBirthday(new SimpleDateFormat("yyyy-MM-dd").parse(birthday));
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        user.setPhone(phone);
+        user.setAddress(address);
+        user.setUserRole(Integer.valueOf(userRole));
+        user.setModifyBy(((User)req.getSession().getAttribute(ContextConstant.USER_SESSION)).getId());
+        user.setModifyDate(new Date());
+
+        boolean b = userService.updateUser(user);
+        if(b){
+            resp.sendRedirect(req.getContextPath()+"/jsp/user.do?method=query");
+        }else{
+            req.getRequestDispatcher("usermodify.jsp").forward(req, resp);
+        }
+    }
+
+    public void deleteUser(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        Map<String, Object> map = new HashMap<>();
+        String uid = req.getParameter("uid");
+        User user = userService.getUser(Integer.valueOf(uid));
+        if (user!=null){
+            boolean b = userService.deleteUser(Integer.valueOf(uid));
+            if (b){
+                map.put("delResult","true");
+            }else {
+                map.put("delResult","false");
+            }
+        }else {
+            map.put("delResult","notexist");
+        }
+        //把resultMap转换成json对象输出
+        resp.setContentType("application/json");
+        PrintWriter writer = resp.getWriter();
+        writer.write(JSONArray.toJSONString(map));
+        writer.flush();
+        writer.close();
     }
 }
 
