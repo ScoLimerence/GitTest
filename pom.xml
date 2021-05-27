@@ -13,6 +13,7 @@
         <module>JavaWeb-02</module>
         <module>JavaWeb-JSP</module>
         <module>JavaWeb-JDBC</module>
+        <module>JavaWeb-FileUpload</module>
     </modules>
 
     <properties>

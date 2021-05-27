@@ -102,3 +102,13 @@ servletContext    它代表了servlet环境的上下文，相当于一个全局�
 
 ##JVM双亲委派机制
 java找类会优先找父级目录，层层递进直到找到为止
+
+response.getWriter()返回的是PrintWriter，这是一个打印输出流
+
+response.getWriter().write(）和 response.getWriter().print(）是响应给客户端的东西，如果不用ajax接收将数据放在合适的位置，就会在浏览器上生成一个新的页面来显示内容。
+
+print
+response.getWriter().print(),不仅可以打印输出文本格式的（包括html标签），还可以将一个对象以默认的编码方式转换为二进制字节输出
+
+writer
+response.getWriter().writer(),只能打印输出文本格式的（包括html标签），不可以打印对象
